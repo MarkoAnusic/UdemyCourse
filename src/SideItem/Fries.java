@@ -12,4 +12,8 @@ public class Fries extends SideItem {
       super("Fries", price);
       this.size = size;
    }
+
+   public String FriestoString() {
+      return "Type: " + type + "Size: " + size;
+   }
 }

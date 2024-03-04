@@ -84,7 +84,7 @@ public class Burger {
 
    @Override
    public String toString() {
-      return "Burger: " + type + "\nPrice: " + price + "$\nToppings: " + stringToppings();
+      return "Burger: " + type + "$\nToppings: " + stringToppings();
    }
 }
 

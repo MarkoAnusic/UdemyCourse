@@ -64,12 +64,15 @@ public class Order {
    }
 
    public double currentPrice() {
-      double priceOfToppings = 0;
+      double currentPrice = 0;
       List<Topping> toppings = burger.getToppings();
       for(int i = 0; i < burger.getToppingsAmount(); i++) {
-         priceOfToppings += toppings.get(i).getPrice();
+         currentPrice += toppings.get(i).getPrice();
       }
-      return priceOfToppings;
+      currentPrice += burger.getPrice();
+      currentPrice += drink.getPrice();
+      currentPrice += sideItem.getPrice();
+      return currentPrice;
    }
 
    public void printToppings() {
@@ -88,7 +91,8 @@ public class Order {
    }
 
    public void currentOrder() {
-      System.out.println("\t\tCURRENT ORDER:\n" + burger.toString());
+      System.out.println("\t\tCURRENT ORDER:\n" + burger.toString() + "\n" + drink.toString());
+      //malo drugaciji toString za fries
       System.out.println("Press 1 or 2 to come back to the order menu or go to checkout");
       System.out.println("1.Order Menu" + "           2.Checkout");
       int choice = scanner.nextInt();
