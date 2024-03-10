@@ -11,7 +11,7 @@ public class Sprite extends Drink {
       this.type = "Sprite";
    }
 
-   public Sprite(String size, String type, double price) {
+   public Sprite(String size, double price) {
       super();
       this.type = "Sprite";
       this.price = price;

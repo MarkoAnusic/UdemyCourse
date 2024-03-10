@@ -11,7 +11,7 @@ public class Fanta extends Drink {
       this.type = "Fanta";
    }
 
-   public Fanta(String size, String type, double price) {
+   public Fanta(String size, double price) {
       super();
       this.type = "Fanta";
       this.price = price;

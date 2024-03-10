@@ -7,10 +7,12 @@ public class Cola extends Drink {
       this.type = "Cola";
    }
 
-   public Cola(String size, String type, double price) {
+   public Cola(String size, double price) {
       super();
       this.type = "Cola";
       this.price = price;
       this.size = size;
    }
+
+
 }

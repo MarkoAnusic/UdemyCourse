@@ -20,9 +20,11 @@ public class Drink {
       Cola cola = new Cola();
       Fanta fanta = new Fanta();
       Sprite sprite = new Sprite();
-
-      System.out.println("\nDRINKS MENU\n" + cola.getType() + "\t\t" + "Small $1.00" + "\n" + "\t\t\t" + "Regular $2.00" + "\n" + "\t\t\t" + "Big $3.00" + "\n" + "************\n" + fanta.getType() + "\t\t" + "Small $1.20" + "\n" + "\t\t\t" + "Regular $2.10" + "\n" + "\t\t\t" + "Big $3.00" + "\n" + "************\n" + sprite.getType() + "\t\t" + "Small $0.95" + "\n" + "\t\t\t" + "Regular $1.85" + "\n" + "\t\t\t" + "Big $3.50" + "\n" + "\n");
-
+      System.out.println("\n\t\t\tDRINKS MENU\n\t\t--------------------");
+      System.out.println("            Small     Medium     Large");
+      System.out.println("1.Cola:     1.00$     2.00$      3.00$");
+      System.out.println("2.Fanta:    1.20$     2.10$      3.00$");
+      System.out.println("3.Sprite:   0.95$     1.85$      3.50$");
    }
 
    public String getSize() {
