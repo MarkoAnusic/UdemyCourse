@@ -58,6 +58,17 @@ public class Burger {
       return strToppings;
    }
 
+   private double priceWithToppings() {
+      double currentPrice = 0;
+      List<Topping> toppings = getToppings();
+      for(int i = 0; i < getToppingsAmount(); i++) {
+         currentPrice += toppings.get(i).getPrice();
+      }
+      currentPrice += getPrice();
+
+      return currentPrice;
+   }
+
    public String getType() {
       return type;
    }
@@ -84,7 +95,7 @@ public class Burger {
 
    @Override
    public String toString() {
-      return "Burger: " + type + "$\nToppings: " + stringToppings();
+      return "Burger: " + type + ", " + stringToppings() + ", " + priceWithToppings();
    }
 }
 

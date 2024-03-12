@@ -53,7 +53,7 @@ public class Drink {
 
    @Override
    public String toString() {
-      return "Drink: " + type + "\nSize:" + size;
+      return "Drink: " + size + " " + type + ", " + price + "$";
    }
 }
 

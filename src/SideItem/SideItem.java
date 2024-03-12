@@ -55,6 +55,6 @@ public class SideItem {
 
    @Override
    public String toString() {
-      return "SideItem: " + size + " " + type;
+      return "SideItem: " + size + " " + type + ", " + price;
    }
 }

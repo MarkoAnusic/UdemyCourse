@@ -136,7 +136,10 @@ public class Order {
          case 1:
             orderMenu();
             break;
-         //case 2 Checkout;
+         case 2: {
+            System.out.println("Your order is complete, thank you for using our service. goodbye.");
+            System.exit(0);
+         }
       }
    }
 
@@ -156,12 +159,12 @@ public class Order {
             if(input.equals("YES")) {
                do {
                   topping = setTopping();
-                  if(topping == null) {
+                  if(topping != null) {
                      burger.addTopping(topping);
                   }
                   System.out.println("Do you want more toppings? Yes or No");
                   printToppings();
-                  System.out.print("\n");
+                  scanner.nextLine();
                   input = scanner.nextLine().toUpperCase();
                } while(! input.equals("NO"));
             }
@@ -184,7 +187,7 @@ public class Order {
                   }
                   System.out.println("Do you want more toppings? Yes or No");
                   printToppings();
-                  System.out.print("\n");
+                  scanner.nextLine();
                   input = scanner.nextLine().toUpperCase();
                } while(! input.equals("NO"));
             }
@@ -207,7 +210,7 @@ public class Order {
                   }
                   System.out.println("Do you want more toppings? Yes or No");
                   printToppings();
-                  System.out.print("\n");
+                  scanner.nextLine();
                   input = scanner.nextLine().toUpperCase();
                } while(! input.equals("NO"));
             }
@@ -230,7 +233,7 @@ public class Order {
                   }
                   System.out.println("Do you want more toppings? Yes or No");
                   printToppings();
-                  System.out.print("\n");
+                  scanner.nextLine();
                   input = scanner.nextLine().toUpperCase();
                } while(! input.equals("NO"));
             }
@@ -240,10 +243,21 @@ public class Order {
             orderMenu();
          }
          break;
-         default:
-            System.out.println("WRONG.");
-            break;
+         default: {
+            System.out.println("Wrong number");
+            System.out.println("Do you want to return to try again? Yes or No");
+            scanner.nextLine();
+            String input = scanner.nextLine().toUpperCase();
+            if(input.equals("YES")) {
+               orderBurger();
+            }
+            else {
+               orderMenu();
+            }
+         }
+         break;
       }
+      orderMenu();
    }
 
    private void toppingsCheck() {
@@ -343,29 +357,33 @@ public class Order {
 
    }
 
-   protected void setDrink(String drink) {
+   protected void setDrink(String strDrink) {
       scanner.nextLine();
-      System.out.println("What size do you want your " + drink + " to be? Small, Medium or Large");
+      System.out.println("What size do you want your " + strDrink + " to be? Small, Medium or Large");
       String sizeOption = scanner.nextLine();
-      if(drink.equals("Cola")) {
+      if(strDrink.equals("Cola")) {
+         this.drink = new Cola();
          switch(sizeOption.toUpperCase()) {
             case "SMALL": {
-               this.drink = new Cola("Small", 1.0);
+               drink.setSize("Small");
+               drink.setPrice(1.00);
             }
             break;
             case "MEDIUM": {
-               this.drink = new Cola("Medium", 2.0);
+               drink.setSize("Medium");
+               drink.setPrice(2.00);
             }
             break;
             case "LARGE": {
-               this.drink = new Cola("Large", 3.0);
+               drink.setSize("Large");
+               drink.setPrice(3.00);
             }
             break;
             default: {
                System.out.println("You inputted the wrong size. 1 to try again 2 to comeback to the order menu.");
                int option = scanner.nextInt();
                if(option == 1) {
-                  setDrink(drink);
+                  setDrink(strDrink);
                }
                else {
                   orderMenu();
@@ -373,51 +391,58 @@ public class Order {
             }
          }
       }
-      if(drink.equals("Fanta")) {
+      if(strDrink.equals("Fanta")) {
+         drink = new Fanta();
          switch(sizeOption.toUpperCase()) {
             case "SMALL":
-               this.drink = new Fanta("Small", 1.20);
+               drink.setSize("Small");
+               drink.setPrice(1.20);
                break;
             case "MEDIUM":
-               this.drink = new Fanta("Medium", 2.10);
+               drink.setSize("Medium");
+               drink.setPrice(2.10);
                break;
             case "LARGE":
-               this.drink = new Fanta("Large", 3.00);
+               drink.setSize("Large");
+               drink.setPrice(3.00);
                break;
             default:
                System.out.println("You inputted the wrong size. 1 to try again, 2 to come back to the order menu.");
                int option = scanner.nextInt();
                if(option == 1) {
-                  setDrink(drink);
+                  setDrink(strDrink);
                }
                else {
                   orderMenu();
                }
          }
       }
-      if(drink.equals("Sprite")) {
+      if(strDrink.equals("Sprite")) {
          switch(sizeOption.toUpperCase()) {
             case "SMALL":
-               this.drink = new Sprite("Small", 1.30);
+               drink.setSize("Small");
+               drink.setPrice(1.30);
                break;
             case "MEDIUM":
-               this.drink = new Sprite("Medium", 2.20);
+               drink.setSize("Medium");
+               drink.setPrice(2.20);
                break;
             case "LARGE":
-               this.drink = new Sprite("Large", 3.10);
+               drink.setSize("Large");
+               drink.setPrice(3.10);
                break;
             default:
                System.out.println("You inputted the wrong size. 1 to try again, 2 to come back to the order menu.");
                int option = scanner.nextInt();
                if(option == 1) {
-                  setDrink(drink);
+                  setDrink(strDrink);
                }
                else {
                   orderMenu();
                }
          }
       }
-      System.out.println("You ordered a " + sizeOption + " " + drink);
+      System.out.println("You ordered a " + sizeOption + " " + strDrink);
       System.out.println("ENTER to come back to the order menu.");
       scanner.nextLine();
       orderMenu();
